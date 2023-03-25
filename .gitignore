@@ -1,3 +1,7 @@
+**/.terragrunt-cache
+**/.terraform.lock.hcl
+**/*_remove.tf
+
 # Local .terraform directories
 **/.terraform/*
 
