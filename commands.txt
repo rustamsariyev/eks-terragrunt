@@ -1,0 +1,18 @@
+aws eks update-kubeconfig --region eu-central-1 --name webapp-prod --alias webapp-prod-admin
+aws eks update-kubeconfig --region eu-central-1 --name webapp-prod --alias webapp-prod-dev
+
+kubectl apply -f deployment.yaml
+kubectl apply -f developer_eks_access.yaml
+
+# will fail
+kubectl get pods or kubectl auth can-i create pods
+kubectl get deployments.apps  or  kubectl auth can-i create deployments
+
+# pass
+kubectl get pods -n developer-ns  or  kubectl auth can-i create pods -n developer-ns
+kubectl get deployments.apps -n developer-ns  or kubectl auth can-i create deployments -n developer-ns
+
+# check s3 access
+               pod_name
+ kubectl exec developer-deployment-55697b8dc6-lr5w9  -n developer-ns -- aws s3 ls
+

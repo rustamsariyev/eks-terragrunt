@@ -1,0 +1,54 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: developer-ns
+  name: developers
+rules:
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    - pods/log
+    - pods/status
+    - pods/exec
+    - podtemplates
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+    - deletecollection
+  - apiGroups:
+    - apps
+    resources:
+    - deployments
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+    - deletecollection
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: developers
+  namespace: developer-ns
+subjects:
+  - kind: Group
+    name: developers
+    namespace: developer-ns
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: developers
+  apiGroup: rbac.authorization.k8s.io
