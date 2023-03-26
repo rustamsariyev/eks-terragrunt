@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "git@github.com:rustamsariyev/eks-tf-modules.git//irsa?ref=v0.0.3"
+  source = "git@github.com:rustamsariyev/eks-tf-modules.git//irsa?ref=v0.0.4"
 }
 
 locals {
@@ -24,12 +24,12 @@ dependency "eks" {
 
 inputs = {
   create_role      = true
-  serviceaccount   = "developer-team-sa"
-  pod_namespace    = "developer-ns"
+  serviceaccount   = "external-secrets-sa"
+  namespace        = "external-secrets"
   tags             = local.tags
   env              = local.env
   eks_cluster_name = dependency.eks.outputs.cluster_name
-  iam_policy_json  = templatefile("irsa_policy.json", {})
+  iam_policy_json  = templatefile("policy.json", {})
 }
 
 
