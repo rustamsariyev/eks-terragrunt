@@ -10,7 +10,7 @@
 
 ### The code structure will be like as following
 
-![Code_Tree](tf_tree.png)
+![Code_Tree](./images/tf_tree.png)
 
 * `demo_account` - Name of our AWS account. You can add the same level to your other AWS accounts.
     * `account.hcl` - This file contains of account based variables
@@ -24,7 +24,7 @@
 
 
 # EKS cluster Secruity Groups Rules Visualized
-![Code_Tree](EKS_SG.png)
+![Code_Tree](./images/EKS_SG.png)
 
 
 
@@ -48,8 +48,8 @@ aws eks update-kubeconfig --region eu-central-1 --name webapp-prod --alias webap
 ```
 # Deploy
 ```
-kubectl apply -f deployment.yaml
-kubectl apply -f developer_eks_access.yaml
+kubectl apply -f k8s_manifest/deployment.yaml
+kubectl apply -f k8s_manifest/developer_eks_access.yaml
 ```
 # Configures kubectl so that you can connect to an Amazon EKS cluster. SSO login with developer role
 ```
@@ -66,6 +66,6 @@ kubectl get pods -n developer-ns  or  kubectl auth can-i create pods -n develope
 kubectl get deployments.apps -n developer-ns  or kubectl auth can-i create deployments -n developer-ns
 ```
 # Check s3 access
-```               pod_name
+```              
 kubectl exec developer-deployment-55697b8dc6-lr5w9  -n developer-ns -- aws s3 ls
 ```
