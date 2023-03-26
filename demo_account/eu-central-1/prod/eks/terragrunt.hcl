@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-  source = "git@github.com:rustamsariyev/eks-tf-modules.git//eks?ref=v0.0.2"
+  source = "git@github.com:rustamsariyev/eks-tf-modules.git//eks?ref=v0.0.3"
 }
 
 locals {
