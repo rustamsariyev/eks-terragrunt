@@ -18,7 +18,7 @@
       * `region.hcl` - This file contains of region based variables
       * `prod` - This folder contains of environment based module configuration folders
         * `env.hcl` - This file contains of environment based variables
-        * `eks`, `irsa`, `vpc`  - **terragrunt.hcl** file for each of these folders defines module source with the same as folders itselfs and overrides variables like as inputs to these modules. 
+        * `eks`, `irsa`, `vpc`, `vault`  - **terragrunt.hcl** file for each of these folders defines module source with the same as folders itselfs and overrides variables like as inputs to these modules. 
             * `irsa` - This folder contain multiple subfolder with 'policy.json'. Using same irsa module.  
 * `terragrunt.hcl` - This file is a root config file for `Terragrunt` and contains of global configuration like `backend`, `provider` and so on.
 * `global.hcl` - This file is a root global file for `Terragrunt` and contains of global name and tags.
