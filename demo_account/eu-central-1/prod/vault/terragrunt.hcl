@@ -3,8 +3,7 @@ include "root" {
 }
 
 terraform {
-  #source = "git@github.com:rustamsariyev/eks-tf-modules.git//irsa?ref=v0.0.4"
-  source = "/mnt/d/Rustam/opsfleet-demo/manage-secrets-k8s/vault//tf-module"
+  source = "git@github.com:rustamsariyev/manage-secrets-k8s.git/vault//tf-module"
 }
 
 locals {
